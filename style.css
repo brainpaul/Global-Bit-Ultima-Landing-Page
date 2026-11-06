@@ -203,6 +203,55 @@ body {
     font-weight: 600;
     color: #ff5e1a;
 }
+/* Clients Parallax */
+.clients-parallax {
+    position: relative;
+    padding: 90px 0;
+    background-image: url('img/parallax-wallpaper.jpg'); 
+    background-attachment: fixed;   
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.clients-parallax::before {          
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 15, 20, 0.7);
+}
+.clients-parallax .container {
+    position: relative;              
+    z-index: 1;
+}
+.clients-parallax .white-text,
+.clients-parallax .section-header p {
+    color: #fff;
+}
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.client-logo {
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 130px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.client-logo:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(255, 94, 26, 0.25);
+}
+.client-logo img {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+}
 .testimonials {
     background: #fefaf7;
     padding: 80px 0;
@@ -457,6 +506,8 @@ body {
         padding: 30px 0;
         gap: 1.8rem;
         z-index: 999;
+    .clients-parallax { background-attachment: scroll; } /* iOS/mobile tidak mendukung fixed */
+    .clients-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
     }
     .nav-toggle:checked ~ .nav-menu { left: 0; }
     .nav-link { color: #e6e6ec; }
